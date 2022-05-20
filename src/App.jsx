@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,6 +14,7 @@ import HomePage from "./pages/HomePage";
 import GlobalStyle from "./styles/GlobalStyle";
 
 import { AuthProvider, AuthContext } from "./contexts/auth";
+import { Game } from "./components/Game";
 
 const App = () => {
   const Private = ({ children }) => {
@@ -32,6 +34,7 @@ const App = () => {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/game" element={<Game />} />
         </Routes>
         <GlobalStyle />
       </AuthProvider>
