@@ -1,6 +1,8 @@
 import axios from "axios";
 
 export const api = axios.create({
+    /*Fix me: Ao criar uma nova instância do axios, a baseURL não está aceitando a variável de ambiente. */
+  // baseURL: `${process.env.REACT_APP_API_BASE_URL}`,
   baseURL: "https://mongodb-deploy-cardgamestore.herokuapp.com",
 });
 
