@@ -1,21 +1,20 @@
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Navigate,
+  Route
 } from "react-router-dom";
-import { useContext } from "react";
+//import { useContext } from "react";
 
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
+//import SignIn from "./pages/SignIn";
+//import SignUp from "./pages/SignUp";
 import HomePage from "./pages/HomePage";
 
 import GlobalStyle from "./styles/GlobalStyle";
 
-import { AuthProvider, AuthContext } from "./contexts/auth";
+//import { AuthProvider, AuthContext } from "./contexts/auth";
 
 const App = () => {
-  const Private = ({ children }) => {
+  /* const Private = ({ children }) => {
     const { authenticated } = useContext(AuthContext);
 
     if (!authenticated) {
@@ -23,18 +22,14 @@ const App = () => {
     }
 
     return children;
-  };
+  }; */
 
   return (
     <Router>
-      <AuthProvider>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
         </Routes>
-        <GlobalStyle />
-      </AuthProvider>
+        <GlobalStyle />     
     </Router>
   );
 };

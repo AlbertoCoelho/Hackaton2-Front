@@ -51,7 +51,7 @@ strong {
   box-sizing: border-box;
 }
 body {
-  background-color: #FFFFFF;
+  background-color: #FF66FF;
 }
 `
 
