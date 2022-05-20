@@ -30,8 +30,6 @@ const App = () => {
     <Router>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
           <Route path="/game" element={<Game />} />
         </Routes>
         <GlobalStyle />     

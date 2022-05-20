@@ -6,6 +6,13 @@ const HomePage = () => {
   /* const [name, setName] = useState("");
   console.log(name); */
 
+  try {
+    
+  } catch (error) {
+    
+  }
+
+
   return (
     <$Container>
       <$Main>

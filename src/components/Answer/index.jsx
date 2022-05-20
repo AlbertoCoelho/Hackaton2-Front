@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-pascal-case */
+import { $Answer } from "./styles"
+
 export const Answer = ({ text, isCorrectAnswer }) => {
 
     function handleAnswer() {
@@ -5,8 +8,8 @@ export const Answer = ({ text, isCorrectAnswer }) => {
     }
 
     return (
-        <div>
-            <span onClick={handleAnswer} >{text}</span>
-        </div>
+        <$Answer onClick={handleAnswer}>
+            <span  >{text}</span>
+        </$Answer>
     )
 }

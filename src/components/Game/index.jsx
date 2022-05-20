@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import { useState } from "react"
 import { Question } from "../Question"
-import { $Game } from "./style"
+import { $Game, $Header } from "./style"
 
 export const Game = () => {
 
@@ -30,14 +30,19 @@ export const Game = () => {
                 {
                     text: 'texto da resposta 2',
                     isCorrectAnswer: true
-                }
+                },
             ]
         }
     ])
 
     return(
+        <>
+        <$Header>
+        <img src="https://i.ibb.co/XX6BJFz/blackcat.png" alt="" />
+        <h1>Triolinguo</h1>
+        </$Header>
         <$Game>
-            <h1>Você selecionou a categoria 'title'!</h1>
+            <h1>Você selecionou a categoria: <span>'title'!</span></h1>
             <article>
                 {questions.map((question, i) => {
                     return(
@@ -49,5 +54,6 @@ export const Game = () => {
                 })}
             </article>
         </$Game>
+        </>
     )
 }

@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-pascal-case */
 import { Answer } from "../Answer"
+import { $Question } from "./style"
 
 export const Question = ({ title, answers }) => {
     return (
-        <div>
+        <$Question>
             <h2>{title}</h2>
             {answers.map((answer, i) => {
                 return (
@@ -13,6 +15,6 @@ export const Question = ({ title, answers }) => {
                     />
                 )
             })}
-        </div>
+        </$Question>
     )
 }
