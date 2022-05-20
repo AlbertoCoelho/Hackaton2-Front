@@ -1,17 +1,16 @@
 /* eslint-disable react/jsx-pascal-case */
 //import { useState } from "react";
+import axios from "axios";
 import { $Container, $Main } from "./styles";
 
 const HomePage = () => {
   /* const [name, setName] = useState("");
   console.log(name); */
 
-  try {
-    
-  } catch (error) {
-    
-  }
+  const URL = `${process.env.REACT_APP_API_BASE_URL}`;
 
+  const promise = axios.get(URL)
+  promise.then((res) => console.log(res.data))
 
   return (
     <$Container>

@@ -14,6 +14,8 @@ import GlobalStyle from "./styles/GlobalStyle";
 
 //import { AuthProvider, AuthContext } from "./contexts/auth";
 import { Game } from "./components/Game";
+import { UserContext } from "./contexts/UserContext";
+import { useState } from "react";
 
 const App = () => {
   /* const Private = ({ children }) => {
@@ -26,15 +28,27 @@ const App = () => {
     return children;
   }; */
 
+  const [user, setUser] = useState({
+		done: 0,
+    correct: 0
+	})
+
   return (
-    <Router>
+    <>
+      <UserContext.Provider value={{ user, setUser }}>
+      <Router>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/game" element={<Game />} />
         </Routes>
-        <GlobalStyle />     
-    </Router>
+        <GlobalStyle />
+      </Router>
+      </UserContext.Provider>
+    </>
   );
 };
 
 export default App;
+
+/*<Route path="/sign-in" element={<SignIn />} />
+<Route path="/sign-up" element={<SignUp />} />*/
