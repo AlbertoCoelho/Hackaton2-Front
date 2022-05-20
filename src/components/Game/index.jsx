@@ -1,10 +1,19 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-pascal-case */
-import { useState } from "react"
+import axios from "axios";
+import { useContext, useState } from "react"
+import { UserContext } from "../../contexts/UserContext";
 import { Question } from "../Question"
 import { $Game } from "./style"
 
 export const Game = () => {
+
+    /*const URL = `${process.env.REACT_APP_API_BASE_URL}`;
+
+    const promise = axios.get(URL)
+    promise.then((res) => console.log(res.data))*/
+
+    const { user } = useContext(UserContext)
 
     const [questions, setQuestions] = useState([
         {
@@ -35,19 +44,24 @@ export const Game = () => {
         }
     ])
 
-    return(
+    const total = Math.round(((user.correct) / (user.done) * 100).toFixed(2))
+
+    return (
         <$Game>
             <h1>Você selecionou a categoria 'title'!</h1>
             <article>
                 {questions.map((question, i) => {
-                    return(
-                        <Question 
-                        key={i} 
-                        title={question.title}
-                        answers={question.answers} />
+                    return (
+                        <Question
+                            key={i}
+                            title={question.title}
+                            answers={question.answers} />
                     )
                 })}
             </article>
+            {questions.length === user.done &&
+                <span>Você acertou {total}% das respostas!</span>
+            }
         </$Game>
     )
 }
