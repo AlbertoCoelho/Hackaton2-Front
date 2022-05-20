@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 
-import SignIn from "./pages/Login";
+import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import HomePage from "./pages/HomePage";
 
