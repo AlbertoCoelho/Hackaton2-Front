@@ -1,12 +1,21 @@
-export const Answer = ({ text, isCorrectAnswer }) => {
+import { useContext } from "react"
+import { UserContext } from "../../contexts/UserContext"
+
+export const Answer = ({ text, isCorrectAnswer, disabled, callbackDisabled }) => {
+
+    const { user, setUser } = useContext(UserContext)
 
     function handleAnswer() {
         console.log(isCorrectAnswer)
+        isCorrectAnswer ?
+            setUser({ ...user, correct: user.correct + 1, done: user.done + 1 }) :
+            setUser({ ...user, done: user.done + 1 })
+        callbackDisabled()
     }
 
     return (
         <div>
-            <span onClick={handleAnswer} >{text}</span>
+            <button onClick={handleAnswer} disabled={disabled} >{text}</button>
         </div>
     )
 }
