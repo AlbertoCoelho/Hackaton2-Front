@@ -1,0 +1,2 @@
+cor primaria = #FF66FF rpsa claro
+cor secundaria = #404040 cinza
