@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 
-import Login from "./pages/Login";
+import SignIn from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import HomePage from "./pages/HomePage";
 
@@ -30,7 +30,7 @@ const App = () => {
       <AuthProvider>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/sign-in" element={<Login />} />
+          <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
         </Routes>
         <GlobalStyle />
