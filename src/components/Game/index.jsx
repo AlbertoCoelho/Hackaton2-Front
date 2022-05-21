@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import { Question } from "../Question";
-import { $Game, $Header, $Result } from "./style";
+import { $Game, $Header, $Result, $FinalButtons } from "./style";
 
 export const Game = () => {
 
@@ -25,18 +25,18 @@ export const Game = () => {
         })
     }, [])
 
-    const total = Math.round(((user.correct) / (user.done) * 100).toFixed(2))
-    const navigate = useNavigate()
+  const total = Math.round(((user.correct / user.done) * 100).toFixed(2));
+  const navigate = useNavigate();
 
-    function restart() {
-        setUser({ ...user, done: 0, correct: 0 })
-        setReload(!reload)
-    }
-    function backToMain() {
-        setUser({ ...user, done: 0, correct: 0 })
-        navigate('/')
-    }
-
+  function restart() {
+    setUser({ ...user, done: 0, correct: 0 });
+    setReload(!reload);
+  }
+  function backToMain() {
+    setUser({ ...user, done: 0, correct: 0 });
+    navigate("/");
+  }
+  
     if (!questions) {
         return <></>
     }
@@ -84,6 +84,14 @@ export const Game = () => {
                         </div>
                     </$Result>
                 )}
+                {questions.length === user.done && (
+          <>
+            <$FinalButtons>
+              <button onClick={restart}>Refazer Teste</button>
+              <button onClick={backToMain}>Escolher outro Teste</button>
+            </$FinalButtons>
+          </>
+        )}
             </$Game>
         </>
     )
