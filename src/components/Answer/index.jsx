@@ -1,9 +1,12 @@
-import { useContext } from "react"
+/* eslint-disable react/jsx-pascal-case */
+import { useContext, useState } from "react"
 import { UserContext } from "../../contexts/UserContext"
+import { $Answer } from "./styles"
 
 export const Answer = ({ text, isCorrectAnswer, disabled, callbackDisabled }) => {
 
     const { user, setUser } = useContext(UserContext)
+    const [color, setColor] = useState("")
 
     function handleAnswer() {
         console.log(isCorrectAnswer)
@@ -14,8 +17,8 @@ export const Answer = ({ text, isCorrectAnswer, disabled, callbackDisabled }) =>
     }
 
     return (
-        <div>
+        <$Answer status={color}>
             <button onClick={handleAnswer} disabled={disabled} >{text}</button>
-        </div>
+        </$Answer>
     )
 }
