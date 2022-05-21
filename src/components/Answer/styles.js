@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const $Answer = styled.span`
 background-color: bisque;
-width: 140px;
+width: 320px;
 height: 70px;
 position: relative;
 border: 3px solid;

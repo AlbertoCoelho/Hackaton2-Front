@@ -72,15 +72,16 @@ div{
 export const $FinalButtons = styled.div`
 max-width: 300px;
 margin-top: 15px;
-margin-left: 35px;
+margin-left: 80px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+margin-bottom: 20px;
 
 button{
     height: 40px;
-    border-radius: 20px;
-    width: 135px;
+    border-radius: 15px;
+    width: 200px;
     background-color: #404040;
     color: white;
     box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);

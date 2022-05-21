@@ -87,7 +87,6 @@ export const Game = () => {
                 {questions.length === user.done && (
           <>
             <$FinalButtons>
-              <button onClick={restart}>Refazer Teste</button>
               <button onClick={backToMain}>Escolher outro Teste</button>
             </$FinalButtons>
           </>
