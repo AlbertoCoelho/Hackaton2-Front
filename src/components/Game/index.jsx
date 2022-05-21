@@ -4,7 +4,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { Question } from "../Question";
-import { $Game, $Header } from "./style";
+import { $Game, $Header, $Result } from "./style";
 
 export const Game = () => {
   /*const URL = `${process.env.REACT_APP_API_BASE_URL}`;
@@ -65,8 +65,33 @@ export const Game = () => {
             );
           })}
         </article>
-        {questions.length === user.done && (
-          <span>Você acertou {total}% das respostas!</span>
+        {questions.length === user.done && total > 49 &&(
+          <$Result>
+            <img
+              src="https://c.tenor.com/qvB6zgky8XEAAAAi/animal-kitty.gif"
+              alt=""
+              srcSet=""
+            />
+            <div>
+              <p>Você acertou </p>
+              <span>{total}%</span>
+              <p> das respostas!</p>
+            </div>
+          </$Result>
+        )}
+        {questions.length === user.done && total <= 49 &&(
+          <$Result>
+            <img
+              src="https://c.tenor.com/aTtU5YyfwgQAAAAi/cartoon-cat.gif"
+              alt=""
+              srcSet=""
+            />
+            <div>
+              <p>Você acertou </p>
+              <span>{total}%</span>
+              <p> das respostas!</p>
+            </div>
+          </$Result>
         )}
       </$Game>
     </>

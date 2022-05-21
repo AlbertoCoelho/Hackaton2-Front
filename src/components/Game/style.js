@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const $Game = styled.div`
-padding: 0 15px;
+max-width: 375px;
+margin: auto;
+
 h1{
+    margin-left: 5px;
     font-size: 23px;
     margin-bottom: 15px;
         span{
@@ -15,7 +18,7 @@ article{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 `
@@ -38,4 +41,27 @@ margin-bottom: 20px;
     h1{
         font-size: 30px;
     }
+`
+
+export const $Result = styled.div`
+width: 300px;
+height: 150px;
+margin-left: 24px;
+display: flex;
+img{
+    width: 150px;
+    margin-left: -15px;
+}
+div{
+    margin-top: 15px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    span{
+        font-weight: bold;
+        font-size: 50px;
+        color: darkmagenta;
+    }
+}
 `
