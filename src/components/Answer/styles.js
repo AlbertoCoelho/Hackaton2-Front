@@ -7,7 +7,15 @@ height: 70px;
 position: relative;
 border: 3px solid;
 border-color: black;
-border-color: ${(props) => props.status};
+border-color: ${props => {
+    if (props.selectedAnswer === props.index && props.isCorrectAnswer) {
+      return "green";
+    } else if (props.selectedAnswer === props.index && !props.isCorrectAnswer) {
+      return "red";
+    } else {
+      return "black";
+    }
+  }};
 border-radius: 180px;
 display: flex;
 align-items: center;
@@ -21,7 +29,8 @@ button{
     height: 100%;
     border-radius: 180px;
     border: none;
-    background-color: bisque;
+    background-color: ${props =>
+      props.selectedAnswer === props.index ? "#FFCCCC" : "bisque"};
 
 }
 
