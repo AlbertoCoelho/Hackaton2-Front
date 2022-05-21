@@ -14,7 +14,6 @@ export const Answer = ({
   setSelectedAnswer,
 }) => {
   const { user, setUser } = useContext(UserContext);
-  const [color, setColor] = useState("");
 
   function handleAnswer() {
     console.log(isCorrectAnswer);
@@ -23,11 +22,10 @@ export const Answer = ({
       : setUser({ ...user, done: user.done + 1 });
     setSelectedAnswer(index);
     callbackDisabled();
-    callbackDisabled();
   }
 
   return (
-    <$Answer status={color} index={index} selectedAnswer={selectedAnswer} isCorrectAnswer={isCorrectAnswer}>
+    <$Answer index={index} selectedAnswer={selectedAnswer} isCorrectAnswer={isCorrectAnswer}>
       <button onClick={handleAnswer} disabled={disabled}>
         {text}
       </button>
