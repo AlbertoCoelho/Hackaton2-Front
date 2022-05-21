@@ -1,36 +1,29 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-pascal-case */
 import axios from "axios";
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import { Question } from "../Question";
 import { $Game, $Header, $Result } from "./style";
 
 export const Game = () => {
-    /*const URL = `${process.env.REACT_APP_API_BASE_URL}`;
-  
-      const promise = axios.get(URL)
-      promise.then((res) => console.log(res.data))*/
 
     const { user, setUser } = useContext(UserContext)
+    const [questions, setQuestions] = useState([])
+    const [data, setData] = useState([])
     const [reload, setReload] = useState(false)
 
-    const [questions, setQuestions] = useState([
-        {
-            title: 'Titulo pergunta 1',
-            answers: [
-                {
-                    text: 'texto da resposta 1',
-                    isCorrectAnswer: true
-                },
-                {
-                    text: 'texto da resposta 2',
-                    isCorrectAnswer: false
-                }
-            ]
-        }
-    ])
+    const URL = `${process.env.REACT_APP_API_BASE_URL}/${user.type}`;
+    useEffect(() => {
+        const promise = axios.get(URL)
+        promise.then(({ data }) => {
+            console.log(data)
+            setQuestions(data.questions)
+            setData(data)
+        })
+    }, [])
 
     const total = Math.round(((user.correct) / (user.done) * 100).toFixed(2))
     const navigate = useNavigate()
@@ -44,11 +37,15 @@ export const Game = () => {
         navigate('/')
     }
 
+    if (!questions) {
+        return <></>
+    }
+
     return (
         <>
-        <$Header> <img src="https://i.ibb.co/XX6BJFz/blackcat.png" alt=""/> <h1>Triolinguo</h1>  </$Header>
+            <$Header> <img src="https://i.ibb.co/XX6BJFz/blackcat.png" alt="" /> <h1>Triolinguo</h1>  </$Header>
             <$Game>
-                <h1>Você selecionou a categoria 'title'!</h1>
+                <h1>Você selecionou a categoria {data.title}!</h1>
                 <article>
                     {questions.map((question, i) => {
                         return (
@@ -86,8 +83,8 @@ export const Game = () => {
                             <p> das respostas!</p>
                         </div>
                     </$Result>
-                    )}
-        </$Game>
+                )}
+            </$Game>
         </>
     )
 }

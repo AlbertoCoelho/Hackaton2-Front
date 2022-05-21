@@ -30,7 +30,8 @@ const App = () => {
 
   const [user, setUser] = useState({
 		done: 0,
-    correct: 0
+    correct: 0,
+    type: ''
 	})
 
   return (

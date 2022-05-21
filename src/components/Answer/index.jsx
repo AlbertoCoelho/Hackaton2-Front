@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-pascal-case */
 import { useContext, useState } from "react"
 import { UserContext } from "../../contexts/UserContext"
